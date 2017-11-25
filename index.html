@@ -2,76 +2,24 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <html>
-<head>
-  <style type="text/css">
-  div#video_controls_bar {background: #333; padding: 10px;}
-  button#playpausebtn {
-    background-image: url(/img/playbtn.png);
-    border: 2px solid black;;
-    cursor: pointer;
-    width: 128px;
-    height: 82px;
-  }
-  div#video_player_box { width: 550px; background: #000; margin: 0px auto;}
-  </style>
-  <script>
-  var vid, playbtn, mutebtn, fullscreenbtn;
-
-  function initializePlayer(){
-    // Set object references
-    vid = document.getElementById('my_video');
-    playbtn = document.getElementById('playpausebtn');
-    mutebtn = document.getElementById('mutebtn');
-    fullscreenbtn = document.getElementById('fullscreenbtn');
-    // Add event listeners
-    playbtn.addEventListener("click", playPause, false);
-    mutebtn.addEventListener("click", vidmute, false);
-    fullscreenbtn.addEventListener("click", toggleFullScreen, false);
-  }
-  window.onload = initializePlayer;
-
-    function playPause() {
-      if (vid.paused) {
-        vid.play();
-        playbtn.style.background = "url (/img/pause.svg";
-      } else {
-        vid.pause();
-        playbtn.playbtn.style.background = "url (/img/play.svg";
-      }
-
-    }
-
-    function vidmute () {
-      if (vid.muted) {
-        vid.muted = false;
-        mutebtn.innerHTML = "Mute";
-      } else {
-        vid.muted = true;
-        mutebtn.innerHTML = "Unmute";
-      }
-    }
-
-    function toggleFullScreen () {
-      if (vid.requestFullScreen) {
-        vid.requestFullScreen();
-      } else if (vid.webkitRequestFullScreen) {
-        vid.webkitRequestFullScreen();
-      } else if (vid.mozRequestFullScreen) {
-        vid.mozRequestFullScreen();
-      }
-    }
-  </script>
-</head>
-<body>
-  <div id="video_player_box">
-    <video id="my_video" width="550" height="320" autoplay>
-      <source src="videos/bunny.mp4">
-    </video>
+  <head>
+    <meta charset="utf-8">
+    <title>Stóra Verkefni 2</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div id="video_player_box">
+      <video id="my_video" autoplay>
+        <source src="videos/bunny.mp4">
+      </video>
     <div id="video_controls_bar">
-      <button id="playpausebtn">Pause</button>
-      <button id="mutebtn">Mute</button>
-      <button id="fullscreenbtn">[ &nbsp; ]</button>
+      <button id="backbtn" class="btn backbtn"></button>
+      <button id="playpausebtn" class="btn pausebtn"></button>
+      <button id="mutebtn" class="btn mutebtn"></button>
+      <button id="fullscreenbtn" class="btn fullscreenbtn"></button>
+      <button id="nextbtn" class="btn nextbtn"></button>
     </div>
-  </div>
-</body>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
