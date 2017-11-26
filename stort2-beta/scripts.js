@@ -13,29 +13,36 @@ $(document).ready(function() {
 		//console.log(videos);
 		var html = '';
 		$.each(categories, function(key, value) {
-			html += '<div class=category"' + key + '">';
+			html += '<div class=category">';
 			html += '<h2>' + value.title + '</h2>';
 			console.log(key);
 			console.log(value.title);
 
 			for (var i = 0; i < value.videos.length; i++) {
+				if(i === 0)html += '<div class = myndbond>';
 
 
 				var index = value.videos[i] - 1;
 
 				var thatVid = videos[index];
-				html += '<div class=myndband' + thatVid.id + '/>';
+				html += '<div class = myndband>';
 				//html += '<a href="' + window.location.href + "?id=" + thatVid.id + '">';
 				//html += '<img src="' + thatVid.poster + '" id=vid'+thatVid.id +' /> </a>';
-				html += '<img src="' + thatVid.poster + '" id=' + thatVid.id + ' id=' + thatVid.id + '/>';
-				html += '<label for=' + key + 'class = title' + '>' + thatVid.title + '</label>';
-				html += '<label for=' + key + 'class = duration' + '>' + duration(thatVid.duration) + '</label>';
-				html += '<label for=' + 'class = length' + '>' + timeDifference(thatVid.created) + '</label>';
+				html += '<a class = poster href = "' + window.location.href + "video.html?id=" + thatVid.id + '">';
+				html += '<img class = posterImg src="' + thatVid.poster + '" id=' + thatVid.id + ' id=' + thatVid.id + '/>';
+				html += '<label for= ' + key + ' class = duration' + '>' + duration(thatVid.duration) + '</label>';
+				html += '</a>';
+				html += '<label for= ' + key + ' class = title' + '>' + thatVid.title + '</label>';
+				html += '<label for= ' + ' class = length' + '>' + timeDifference(thatVid.created) + '</label>';
 				html += '</div>';
 				console.log(timeDifference(thatVid.created));
 			}
+			html += '</div>';
+			html += '</div>';
+
 		});
 		$('#videoSalur').html(html);
+
 	}).done(function() {
 		$('img').click(function() {
 			window.location.href = "video.html?id=" + this.id;
