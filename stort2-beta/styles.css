@@ -24,6 +24,10 @@ main {
   flex-direction: column;
 }
 
+body {
+  background: #333;
+}
+
 img {
   max-width: 100%;
 }
@@ -36,10 +40,27 @@ p {
     -webkit-margin-end: 0px;
 }
 
+hr {
+    margin: 2em 16em 4em 8em;
+    padding-bottom: 30px;
+    border: 0;;
+    border-bottom: 1px solid #999;
+}
+
+.title{
+  display: flex;
+  height: 20px;
+  margin: 5px 0;
+  overflow: hidden;
+  font-size: 1.5em;
+  font-weight: bold;
+
+}
+
 .duration{
   position: absolute;
   right: 5px;
-  bottom: 5px;
+  bottom: 12px;
   z-index: 99;
   padding: 3px 5px;
   margin-bottom: 5px;
@@ -48,10 +69,14 @@ p {
 
 }
 
+.length{
+  font-weight: bold;
+}
+
 .poster{
   position: relative;
-  width: 100%;
-  height: 181px;
+  width: 44em;
+  height: 100%;
   overflow: hidden;
 }
 
@@ -73,26 +98,48 @@ p {
 .myndband {
     display: flex;
     max-width: 310px;
-    margin-right: 10px;
+    margin-right: 16em;
+    margin-bottom: 2em;
     flex-direction: column;
     align-self: center;
 }
 
 .heading {
-  width: 100%;
-  padding: 0;
-  border: none;
-  opacity: 0.8;
-  font-family: Merriweather, georgia, serif;
-  font-size: 2rem;
+  display: flex;
+  max-width: 1030px;
+  height: 100%;
+  padding: 20px;
+  margin: 0 auto;
+  color: #eee;
+  flex-direction: column;
+  font-weight: bold;
 }
+  .heading--big {
+    width: 100%;
+    padding: 0;
+    border: none;
+    font-family: Lato, georgia, serif;
+    font-size: 3rem;
+    color: #eee;
+  }
 
   .heading--one {
+    width: 100%;
+    padding: 0;
+    border: none;
+    font-family: Lato, georgia, serif;
     font-size: 3rem;
+    color: #eee;
   }
 
   .heading--two {
-    font-size: 2rem;
+    width: 100%;
+    padding: 0;
+    border: none;
+    font-family: Lato, georgia, serif;
+    font-size: 3rem;
+    color: #eee;
+    text-align: center;
   }
 
   .heading--three {
@@ -149,60 +196,101 @@ p {
     background-color: #eee;
   }
 
-
-/* kort */
-
-.card {
-  width: 100%;
-  min-width: 200px;
-  max-width: 800px;
-
-  overflow: hidden;
-
-  border-radius: 3px;
-
-  background-color: #eee;
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+.return {
+  font-size: 2em;
+  color: #eee;
+  align-self: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-decoration: none;
 }
 
-  .card__heading {
-    margin-bottom: 15px;
 
-    width: 100%;
-    font-family: Merriweather, georgia, serif;
-    font-size: 1.5rem;
-  }
+/* Myndband */
 
-  .card__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#video_player_box {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
 
-    padding: 15px;
-  }
+#error_box{
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  margin-top: 20em;
+}
 
-  .card__text {
-    margin-bottom: 30px;
-  }
+#my_video {
+  width: 97%;
+  height: 100%;
+  margin: 1em;
+}
 
-  .card__img {
-    width: 100%;
-    min-width: 200px;
-    max-width: 100%;
-  }
+#video_controls_bar {
+  background: #333;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+  width: 60px;
+  height: 40px;
+}
+
+.backbtn {
+  background: url(gogn/img/back.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.pausebtn {
+  background: url(gogn/img/pause.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.playbtn {
+  background: url(gogn/img/play.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.muteunmutebtn {
+  border: none;
+  cursor: pointer;
+  width: 128px;
+  height: 82px;
+}
+
+.mutebtn {
+  background: url(gogn/img/mute.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.unmutebtn {
+  background: url(gogn/img/unmute.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.fullscreenbtn {
+  background: url(gogn/img/fullscreen.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.nextbtn {
+  background: url(gogn/img/next.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 
 @media (min-width: 800px) {
-  .card {
-    display: flex;
-  }
 
-  .card__content {
-    align-items: flex-start;
-  }
-
-  .card__img {
-    height: 100%;
-    min-width: 400px;
-    object-fit: cover;
-  }
 }

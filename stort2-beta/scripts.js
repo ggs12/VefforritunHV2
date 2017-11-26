@@ -13,8 +13,8 @@ $(document).ready(function() {
 		//console.log(videos);
 		var html = '';
 		$.each(categories, function(key, value) {
-			html += '<div class=category">';
-			html += '<h2>' + value.title + '</h2>';
+			html += '<div class=category>';
+			html += '<h1 class = heading--one>' + value.title + '</h2>';
 			console.log(key);
 			console.log(value.title);
 
@@ -28,7 +28,7 @@ $(document).ready(function() {
 				html += '<div class = myndband>';
 				//html += '<a href="' + window.location.href + "?id=" + thatVid.id + '">';
 				//html += '<img src="' + thatVid.poster + '" id=vid'+thatVid.id +' /> </a>';
-				html += '<a class = poster href = "' + window.location.href + "video.html?id=" + thatVid.id + '">';
+				html += '<a class = poster href = "' + "" + "video.html?id=" + thatVid.id + '">';
 				html += '<img class = posterImg src="' + thatVid.poster + '" id=' + thatVid.id + ' id=' + thatVid.id + '/>';
 				html += '<label for= ' + key + ' class = duration' + '>' + duration(thatVid.duration) + '</label>';
 				html += '</a>';
@@ -39,6 +39,7 @@ $(document).ready(function() {
 			}
 			html += '</div>';
 			html += '</div>';
+			html += '<hr>';
 
 		});
 		$('#videoSalur').html(html);
