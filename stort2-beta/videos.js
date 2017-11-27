@@ -16,8 +16,8 @@ $(document).ready(function() {
 
 		html += '<h1 class = heading--three>' + videos[vidID - 1].title + '</h2>';
 		html += '<div id="video_player_box">';
-		html += '<video id="my_video" class="the_video">';
-		html += '<source src="' + videos[vidID - 1].video + '" type="video/mp4" poster="'+ videos[vidID - 1].poster +'">';
+		html += '<video id="my_video" class="the_video" poster="'+ videos[vidID - 1].poster +'">';
+		html += '<source src="' + videos[vidID - 1].video + '" type="video/mp4">';
 		html += '</video>'
 		html += '<img src=gogn/img/play.svg class="videoPlayButton" id = "overlaybtn">';
 		html += '</div>';
