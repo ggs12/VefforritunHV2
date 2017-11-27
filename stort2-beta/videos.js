@@ -14,22 +14,23 @@ $(document).ready(function() {
 		html += 'Your browser does not support the video tag.</video>'
 		*/
 
+		html += '<h1 class = heading--three>' + videos[vidID - 1].title + '</h2>';
 		html += '<div id="video_player_box">';
-		html += '<h1 class = heading--two>' + videos[vidID - 1].title + '</h2>';
-		html += '<video id="my_video" autoplay>';
-		html += '<source src="' + videos[vidID - 1].video + '" type="video/mp4">';
+		html += '<video id="my_video" class="the_video">';
+		html += '<source src="' + videos[vidID - 1].video + '" type="video/mp4" poster="'+ videos[vidID - 1].poster +'">';
 		html += '</video>'
+		html += '<img src=gogn/img/play.svg class="videoPlayButton" id = "overlaybtn">';
+		html += '</div>';
 
 
 		html += '<div id="video_controls_bar">';
 		html += '<button id="backbtn" class="btn backbtn"></button>';
-		html += '<button id="playpausebtn" class="btn pausebtn"></button>';
+		html += '<button id="playpausebtn" class="btn playbtn"></button>';
 		html += '<button id="mutebtn" class="btn mutebtn"></button>';
 		html += '<button id="fullscreenbtn" class="btn fullscreenbtn"></button>';
 		html += '<button id="nextbtn" class="btn nextbtn"></button>';
 		html += '</div>';
 		html += '<a href = "index.html" class = return> Til baka </a>';
-		html += '</div>';
 
 		console.log(html);
 		$('#videoSpilari').append(html);
@@ -53,13 +54,19 @@ function initializePlayer(){
   // Skilgreinum object references
   vid = document.getElementById('my_video');
   playbtn = document.getElementById('playpausebtn');
+  overlaybtn = document.getElementById('overlaybtn');
   mutebtn = document.getElementById('mutebtn');
   fullscreenbtn = document.getElementById('fullscreenbtn');
   backbtn = document.getElementById('backbtn');
   nextbtn = document.getElementById('nextbtn');
+  overlaybtn.classList.remove('videoPlayButton__hidden');
+  overlaybtn.classList.add('videoPlayButton');
+  vid.style.filter = 'brightness(0.6)';
 
   // Bætum við event listeners
   playbtn.addEventListener("click", playPause, false);
+  overlaybtn.addEventListener("click", playPause, false);
+  vid.addEventListener("click", playPause, false);
   mutebtn.addEventListener("click", vidmute, false);
   fullscreenbtn.addEventListener("click", toggleFullScreen, false);
   backbtn.addEventListener("click", back, false);
@@ -68,19 +75,35 @@ function initializePlayer(){
 
 window.onload = initializePlayer;
 
+function showOverlay() {
+  overlaybtn.classList.remove('videoPlayButton__hidden');
+  overlaybtn.classList.add('videoPlayButton');
+}
+
+function hideOverlay() {
+  overlaybtn.classList.remove('videoPlayButton');
+  overlaybtn.classList.add('videoPlayButton__hidden');
+}
+
   function playPause() {
     if (vid.paused) {
       vid.play();
+      vid.style.filter = 'brightness(1)';
       playbtn.classList.remove('playbtn');
       playbtn.classList.add('pausebtn');
+      hideOverlay();
       console.log(vid.currentTime);
     } else {
       vid.pause();
+      showOverlay()
+      vid.style.filter = 'brightness(0.6)';
       playbtn.classList.remove('pausebtn');
       playbtn.classList.add('playbtn');
     }
 
   }
+
+
 
   function vidmute () {
     if (vid.muted) {
