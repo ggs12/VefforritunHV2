@@ -1,6 +1,6 @@
 # Stórt verkefni 2 - Vefforritun #
 #### Bjarki Hreinn Viðarsson - bhv2@hi.is #### 
-#### Grétar Guðmundur Sæmundsson - gss12@hi.is ####
+#### Grétar Guðmundur Sæmundsson - ggs12@hi.is ####
 #### Indriði Arnaldsson - ina23@hi.is ####
 #### Sigurður Andri Jóhannsson - saj43@hi.is ####
 
